@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: "{POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: "${POSTGRES_DB}"
+    volumes:
+      - "pgdata:/var/lib/postgresql"
+    ports:
+      - "5432:5432"
+  ort:
+    image: ghcr.io/oss-review-toolkit/ort:94.2.0
+    volumes:
+      - "${PROJECT_DIR}:/project"
+      - "./config.yaml:/ort/config.yaml"
+      - "./.netrc:/home/ort/.netrc"
+    depends_on:
+      - postgres
+volumes:
+  pgdata: ~

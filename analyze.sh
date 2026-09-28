@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 set -eux
-docker run \
-	-it \
-	--volume="${1}:/project" \
-        --volume="./config.yaml:/ort/config.yaml" \
+
+docker compose run \
 	--rm \
-	ghcr.io/oss-review-toolkit/ort \
+	ort \
 	--config=/ort/config.yaml \
 	--info \
 	analyze \
