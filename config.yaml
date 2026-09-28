@@ -1,2 +1,15 @@
 ort:
   forceOverwrite: true
+  scanner:
+    storages:
+      postgres:
+        connection:
+          url: "jdbc:postgresql://postgres:5432/ort"
+          schema: "public"
+          username: "postgres"
+          password: "mysupersecretpostgrespassword"
+          sslmode: "disabled"
+      clearlyDefined:
+        serverUrl: "https://api.clearlydefined.io"
+    storageReaders: ["postgres", "clearlyDefined"]
+    storageWriters: ["postgres"]
