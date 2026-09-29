@@ -9,4 +9,4 @@ docker compose run \
 	report \
 	--ort-file=/project/ort/evaluator/evaluation-result.yml \
 	--output-dir=/project/ort/reporter/evaluation \
-	--report-formats=WebApp
+	--report-formats=WebApp,CycloneDX,SpdxDocument
