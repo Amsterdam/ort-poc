@@ -8,8 +8,24 @@ ort:
           schema: "public"
           username: "postgres"
           password: "mysupersecretpostgrespassword"
-          sslmode: "disabled"
+          sslmode: "disable"
       clearlyDefined:
         serverUrl: "https://api.clearlydefined.io"
     storageReaders: ["postgres", "clearlyDefined"]
     storageWriters: ["postgres"]
+    provenanceStorage:
+      postgresStorage:
+        connection:
+          url: "jdbc:postgresql://postgres:5432/ort"
+          schema: "public"
+          username: "postgres"
+          password: "mysupersecretpostgrespassword"
+          sslmode: "disable"
+    fileListStorage:
+      postgresStorage:
+        connection:
+          url: "jdbc:postgresql://postgres:5432/ort"
+          schema: "public"
+          username: "postgres"
+          password: "mysupersecretpostgrespassword"
+          sslmode: "disable"
