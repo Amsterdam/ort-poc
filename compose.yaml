@@ -15,6 +15,9 @@ services:
       - "${PROJECT_DIR}:/project"
       - "./config.yaml:/ort/config.yaml"
       - "./.netrc:/home/ort/.netrc"
+      - "./curations.yaml:/ort/curations.yaml"
+      - "./evaluator-rules.kts:/ort/evaluator-rules.kts"
+      - "./license-classifications.yaml:/ort/license-classifications.yaml"
     depends_on:
       - postgres
 volumes:
